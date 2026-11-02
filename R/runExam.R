@@ -1,11 +1,7 @@
-library(shiny)
-library(bslib)
-source("R/ui.R")
-source("R/server.R")
+#' @import shiny bslib
+#' @export runExam
 
 runExam <- function(inputFile, outputFile) {
-
-  records <- NULL
 
   questions <- readLines(inputFile)
 
