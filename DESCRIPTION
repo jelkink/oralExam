@@ -4,8 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Jos", "Dornschneider-Elkink", , "jos@joselkink.net", role = c("aut", "cre"))
 Description: Based on a list of potential oral exam questions, it provides an interface to time the exam, show randomly selected exam questions, and track feedback. The assumed context is one where a large number of quick exams have to be performed, e.g. for a large undergraduate class, and the lecturer has to keep track of progress and potential questions.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+License: MIT + file LICENSE
 Config/roxygen2/version: 8.1.1
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
