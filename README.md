@@ -15,7 +15,7 @@ Assuming a simple text file where each line contains a question:
 ```
 library(oralExam)
 
-runExam("questions.txt", "results.csv")
+runExam("questions.txt", "~/exam_results/")
 ```
 
-Results are tracked in results.csv, which will be overwritten. Between restarts of the program, make sure to make a backup!
+Results are tracked in *date*_scores.csv, which will be saved in the output folder.

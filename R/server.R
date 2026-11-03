@@ -1,4 +1,4 @@
-examServer <- function(questions, outputFile) {
+examServer <- function(questions, outputFolder) {
   function(input, output, session) {
 
     output$question <- renderText({
@@ -30,7 +30,7 @@ examServer <- function(questions, outputFile) {
           records(rec)
         }
 
-        write.csv(records(), outputFile, row.names = FALSE)
+        write.csv(records(), paste0(outputFolder, "/", format(Sys.time(), "%Y%m%d_%H%M%S_"), "scores.csv"), row.names = FALSE)
 
         pointer(nrow(records()) + 1)
 
