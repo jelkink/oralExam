@@ -5,6 +5,24 @@ examServer <- function(questions, outputFolder) {
       sample(questions, 1, TRUE)
     }) |> bindEvent(input$nextQuestion)
 
+    # Elapsed-time clock: starts at zero each time "Next" is clicked
+    clockStart <- reactiveVal(NULL)
+
+    observeEvent(input$nextQuestion, {
+      clockStart(Sys.time())
+    })
+
+    output$clock <- renderUI({
+      start <- clockStart()
+      if (is.null(start)) return(NULL)
+
+      invalidateLater(1000)
+
+      secs <- as.integer(difftime(Sys.time(), start, units = "secs"))
+      div(class = "exam-clock",
+          sprintf("%02d:%02d:%02d", secs %/% 3600, (secs %% 3600) %/% 60, secs %% 60))
+    })
+
     output$progress <- renderText({
       sprintf("Stored %d responses", nrow(records()))
     })
